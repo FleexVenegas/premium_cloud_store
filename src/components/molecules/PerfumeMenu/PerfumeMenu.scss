@@ -1,0 +1,90 @@
+.PerfumeMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+    // position: relative;
+    // overflow: hidden;
+
+    .p-cntImage {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+
+
+        .p-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .p-hover{
+            position: absolute;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 250px;
+            background: #ffd8e180;
+            border-radius: 10px;
+            transition: 0.5s;
+            z-index: 2;
+    
+        }
+
+        .p-top{
+            position: absolute;
+            top: -11px;
+            right: -34px;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50.6px solid #e95e7e;
+            transform: rotate(45deg);
+
+            .p-labelTop{
+                position: absolute;
+                top: 25px;
+                left: -10px;  
+                color: #fff;
+                font-size: 16px;
+                font-weight: bold;
+
+            }
+        }
+
+        &:hover{
+            .p-hover{
+                left: 0;
+                transition: 0.5s;
+            }
+        }
+    }
+
+    .p-cntInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .p-name {
+            font-size: 17px;
+            color: #9e9e9e;
+        }
+
+        .p-cntStar{
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+            .label-total{
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+    }
+    .btnTop{
+        width: 100%;
+    }
+}
