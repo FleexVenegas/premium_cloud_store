@@ -8,6 +8,7 @@ import './index.css'
 
 //Components
 import Visitors from './routes/visitors/Visitors';
+import { ContextProvider } from './context/ContextProvider'
 
 
 export default function RootRoute() {
@@ -22,6 +23,8 @@ export default function RootRoute() {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RootRoute />
+    <ContextProvider>
+        <RootRoute/>
+    </ContextProvider>
   </React.StrictMode>,
 )

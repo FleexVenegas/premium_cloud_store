@@ -22,7 +22,7 @@
             border-radius: 10px;
         }
 
-        .p-hover{
+        .p-hover {
             position: absolute;
             top: 0;
             left: -250px;
@@ -32,10 +32,10 @@
             border-radius: 10px;
             transition: 0.5s;
             z-index: 2;
-    
+
         }
 
-        .p-top{
+        .p-top {
             position: absolute;
             top: -11px;
             right: -34px;
@@ -44,10 +44,10 @@
             border-bottom: 50.6px solid #e95e7e;
             transform: rotate(45deg);
 
-            .p-labelTop{
+            .p-labelTop {
                 position: absolute;
                 top: 25px;
-                left: -10px;  
+                left: -10px;
                 color: #fff;
                 font-size: 16px;
                 font-weight: bold;
@@ -55,8 +55,8 @@
             }
         }
 
-        &:hover{
-            .p-hover{
+        &:hover {
+            .p-hover {
                 left: 0;
                 transition: 0.5s;
             }
@@ -68,23 +68,48 @@
         flex-direction: column;
         gap: 10px;
 
-        .p-name {
-            font-size: 17px;
-            color: #9e9e9e;
+        .p-cnt-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .p-name {
+                font-size: 17px;
+                color: #9e9e9e;
+            }
+
+            .p-price {
+                font-size: 17px;
+                color: #e95e7e;
+                font-weight: bold;
+            }
+
+            .p-brand {
+                color: #9e9e9e;
+
+                span {
+                    color: #9e9e9e;
+                    font-weight: bold;
+                }
+            }
+
+
         }
 
-        .p-cntStar{
+
+        .p-cntStar {
             display: flex;
             gap: 15px;
             align-items: center;
 
-            .label-total{
+            .label-total {
                 color: rgba(0, 0, 0, 0.5);
             }
         }
 
     }
-    .btnTop{
+
+    .btnTop {
         width: 100%;
     }
 }
