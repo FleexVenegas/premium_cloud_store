@@ -29,7 +29,7 @@ const MensCategory = () => {
       const get_information = async () => {
         try {
           if(dataResponseM.length === 0 || dataResponseM === undefined){
-              const data_fragrance: unknown = await getAxiosApi("/api/v1/fragrance/type/men");
+              const data_fragrance: unknown = await getAxiosApi("/api/v1/fragrance/type/man");
     
               const _data = data_fragrance as responseApiSuccess
               if(_data.status === 200){

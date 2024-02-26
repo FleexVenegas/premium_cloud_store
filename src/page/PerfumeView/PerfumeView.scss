@@ -39,7 +39,7 @@
 
                 @media (max-width: 768px) {
                     width: 100%;
-                    
+
 
                 }
 
@@ -94,10 +94,10 @@
                     .p-block {
                         display: flex;
                         gap: 15px;
-                        
+
                         @media (max-width: 768px) {
                             justify-content: center;
-                            
+
                         }
 
                         .p-mincard {
@@ -131,6 +131,31 @@
 
                         @media (max-width: 768px) {
                             width: 100%;
+                        }
+                    }
+                }
+
+                .p-category {
+                    font-size: 17px;
+                    color: rgba(0, 0, 0, 0.5);
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+
+                    .bnt-gender {
+                        width: 150px;
+                        height: 30px;
+                        font-weight: normal;
+                        border: 2px solid #ffd8e1;
+                        border-radius: 7px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover {
+                            background: #ffd8e1;
+                            cursor: pointer;
                         }
                     }
                 }

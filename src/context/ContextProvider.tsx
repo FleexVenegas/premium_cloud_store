@@ -11,6 +11,18 @@ interface StateContextType{
   setDataResponseM: Dispatch<SetStateAction<responseData[]>>
   loadingM: boolean
   setLoadingM: Dispatch<SetStateAction<boolean>>
+  dataPerfumeT: responseData[]
+  setDataPerfumeT: Dispatch<SetStateAction<responseData[]>>
+  loadingT: boolean
+  setLoadingT: Dispatch<SetStateAction<boolean>>
+  dataPerfumeID: responseData[]
+  setDataPerfumeID: Dispatch<SetStateAction<responseData[]>>
+  loadingID: boolean
+  setLoadingID: Dispatch<SetStateAction<boolean>>
+
+  perfume_id: string
+  setPerfume_id: Dispatch<SetStateAction<string>>
+
 }
 
 const StateContext = createContext<StateContextType | undefined>(undefined);
@@ -20,11 +32,20 @@ interface ContextProviderProps {
 }
 
 export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
+
+  const [perfume_id, setPerfume_id] = useState<string>("")
+
   const [dataResponseW, setDataResponseW] = useState<responseData[]>([]);
   const [loadingW, setLoadingW] = useState<boolean>(false)
 
   const [dataResponseM, setDataResponseM] = useState<responseData[]>([])
   const [loadingM, setLoadingM] = useState<boolean>(false)
+
+  const [dataPerfumeT, setDataPerfumeT] = useState<responseData[]>([])
+  const [loadingT, setLoadingT] = useState<boolean>(false)
+
+  const [dataPerfumeID, setDataPerfumeID] = useState<responseData[]>([])
+  const [loadingID, setLoadingID] = useState<boolean>(false)
 
   return (
     <StateContext.Provider
@@ -36,7 +57,17 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         dataResponseM,
         setDataResponseM,
         loadingM,
-        setLoadingM
+        setLoadingM,
+        dataPerfumeT,
+        setDataPerfumeT,
+        loadingT,
+        setLoadingT,
+        dataPerfumeID,
+        setDataPerfumeID,
+        loadingID,
+        setLoadingID,
+        perfume_id,
+        setPerfume_id
       }}
     >
       {children}
