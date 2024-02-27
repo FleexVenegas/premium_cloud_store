@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode, Dispatch, SetStateAction } from "react";
-import { responseData } from "../interface/interface";
+import { responseComments, responseData } from "../interface/interface";
 
 // Definir el tipo para el estado del contexto
 interface StateContextType{
@@ -26,6 +26,13 @@ interface StateContextType{
 
   perfume_id: string
   setPerfume_id: Dispatch<SetStateAction<string>>
+
+
+  comments: responseComments[]
+  setComments: Dispatch<SetStateAction<responseComments[]>>
+  loadingCo: boolean
+  setLoadingCo: Dispatch<SetStateAction<boolean>>
+
 
 }
 
@@ -54,6 +61,9 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
   const [dataPerfumeID, setDataPerfumeID] = useState<responseData[]>([])
   const [loadingID, setLoadingID] = useState<boolean>(false)
 
+  const [comments, setComments] = useState<responseComments[]>([])
+  const [loadingCo, setLoadingCo] = useState<boolean>(false)
+
   return (
     <StateContext.Provider
       value={{
@@ -78,7 +88,11 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         dataPerfumeCh,
         setDataPerfumeCh,
         loadingCh,
-        setLoadingCh
+        setLoadingCh,
+        comments,
+        setComments,
+        loadingCo,
+        setLoadingCo
       }}
     >
       {children}

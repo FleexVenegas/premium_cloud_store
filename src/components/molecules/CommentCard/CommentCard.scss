@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 30px;
 
-    .c-cntCommetCard{
+    .c-cntCommetCard {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -14,14 +14,15 @@
         height: 530px;
         overflow: hidden;
 
-        &.co-seeMore{
+        &.co-seeMore {
             height: unset;
             overflow: unset;
         }
 
 
-        .co-card{
+        .co-card {
             width: 500px;
+            height: 250px;
             padding: 25px;
             display: flex;
             flex-direction: column;
@@ -36,26 +37,26 @@
                 display: flex;
                 gap: 15px;
                 align-items: center;
-        
+
                 .c-image {
                     width: 80px;
                     height: 80px;
                     object-fit: cover;
                     border-radius: 50%;
                 }
-        
+
                 .c-cntStarName {
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
-        
+
                     .c-name {
                         font-size: 17px;
                         color: rgba(0, 0, 0, 0.5);
                     }
                 }
             }
-        
+
             .c-comment {
                 color: rgba(0, 0, 0, 0.5);
                 font-size: 17px;
@@ -65,13 +66,13 @@
         }
     }
 
-    .co-button{
+    .co-button {
         width: 100%;
         display: flex;
         justify-content: center;
     }
 
 
-    
+
 
 }
