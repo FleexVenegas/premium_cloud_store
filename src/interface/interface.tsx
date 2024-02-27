@@ -26,7 +26,7 @@ export interface responseData {
 }
 
 export interface responseApiSuccess {
-  data: responseData[] | responseComments[];
+  data: responseData[];
   status: number;
   message: string;
 }

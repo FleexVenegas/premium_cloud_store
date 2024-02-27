@@ -15,6 +15,7 @@ import { Warning } from "../../utilities/SweetAlert/SweetAlertModal";
 import { getAxiosApi } from "../../services/api/Api";
 import { useStateContext } from "../../context/ContextProvider";
 import PerfumeMenuSkeleton from "../../components/molecules/PerfumeMenu/PerfumeMenuSkeleton";
+import PerfumeViewSkeleton from "./PerfumeViewSkeleton";
 
 const PerfumeView = () => {
     const { id } = useParams();
@@ -26,10 +27,10 @@ const PerfumeView = () => {
       try {
 
         if(perfume_id != id){
+            setLoadingID(false)
             const dataID = await getAxiosApi(`/api/v1/fragrance/${id}`);
             const _dataID = dataID as responseApiSuccess;
 
-    
             if (_dataID.status === 200) {
                 setDataPerfumeID(_dataID.data);
                 const _perfume_id = _dataID.data.map((id) => {
@@ -108,7 +109,7 @@ const PerfumeView = () => {
           })
 
       ):(
-            <PerfumeMenuSkeleton />
+            <PerfumeViewSkeleton />
       )}
 
       {/* <div className="p-cnt_similar">
