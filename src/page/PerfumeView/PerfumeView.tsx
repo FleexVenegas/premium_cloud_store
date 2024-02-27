@@ -8,7 +8,7 @@ import "./PerfumeView.scss";
 // Components
 import StarRatings from "../../components/molecules/StarRatings/StarRatings";
 import ReturnBtn from "../../components/atoms/ReturnBtn/ReturnBtn";
-import PerfumeMenu from "../../components/molecules/PerfumeMenu/PerfumeMenu";
+// import PerfumeMenu from "../../components/molecules/PerfumeMenu/PerfumeMenu";
 import { responseApiSuccess, responseError } from "../../interface/interface";
 import { Warning } from "../../utilities/SweetAlert/SweetAlertModal";
 import { getAxiosApi } from "../../services/api/Api";
