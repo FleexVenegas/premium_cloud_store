@@ -1,13 +1,7 @@
 import { useEffect } from "react";
 import MainDiv from "../../components/molecules/MainDiv/MainDiv";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
-//Assets
-import Top1 from "../../assets/images/top1.jpg";
-import Top2 from "../../assets/images/black_opium.jpg";
-import Top3 from "../../assets/images/fresh.png";
-import Top4 from "../../assets/images/davidoff.png";
-import Top5 from "../../assets/images/Louis.jpg";
 
 // Styles
 import "./PerfumeView.scss";
@@ -34,6 +28,7 @@ const PerfumeView = () => {
         if(perfume_id != id){
             const dataID = await getAxiosApi(`/api/v1/fragrance/${id}`);
             const _dataID = dataID as responseApiSuccess;
+
     
             if (_dataID.status === 200) {
                 setDataPerfumeID(_dataID.data);
@@ -44,6 +39,7 @@ const PerfumeView = () => {
               setLoadingID(true);
               setPerfume_id(_perfume_id[0])
             }
+            
         }
         
       } catch (error) {

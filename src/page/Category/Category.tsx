@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // Components
 import MainDiv from "../../components/molecules/MainDiv/MainDiv";
@@ -58,6 +58,8 @@ const Category = () => {
 
     scrollTop();
   }, []);
+
+  console.log(dataResponseW)
 
   return (
     <MainDiv className="Category">

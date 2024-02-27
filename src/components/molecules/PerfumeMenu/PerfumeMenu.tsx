@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 //Components
 import StarRatings from "../StarRatings/StarRatings";
@@ -35,6 +35,7 @@ const PerfumeMenu = ({
     }
     navigate(`/fragrance/${id}/${name}`);
   };
+
 
   return (
     <>

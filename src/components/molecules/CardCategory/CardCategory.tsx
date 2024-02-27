@@ -13,7 +13,7 @@ const CardCategory = () => {
     const navigate = useNavigate()
 
     const cards = [
-        { id: 1, image: Woman, name: "Woman" },
+        { id: 1, image: Woman, name: "Women" },
         { id: 2, image: Man, name: "Man" },
         { id: 3, image: Child, name: "Children" },
     ]

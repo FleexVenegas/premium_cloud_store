@@ -19,6 +19,10 @@ interface StateContextType{
   setDataPerfumeID: Dispatch<SetStateAction<responseData[]>>
   loadingID: boolean
   setLoadingID: Dispatch<SetStateAction<boolean>>
+  dataPerfumeCh: responseData[]
+  setDataPerfumeCh: Dispatch<SetStateAction<responseData[]>>
+  loadingCh: boolean
+  setLoadingCh: Dispatch<SetStateAction<boolean>>
 
   perfume_id: string
   setPerfume_id: Dispatch<SetStateAction<string>>
@@ -44,6 +48,9 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
   const [dataPerfumeT, setDataPerfumeT] = useState<responseData[]>([])
   const [loadingT, setLoadingT] = useState<boolean>(false)
 
+  const [dataPerfumeCh, setDataPerfumeCh] = useState<responseData[]>([])
+  const [loadingCh, setLoadingCh] = useState<boolean>(false)
+
   const [dataPerfumeID, setDataPerfumeID] = useState<responseData[]>([])
   const [loadingID, setLoadingID] = useState<boolean>(false)
 
@@ -67,7 +74,11 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         loadingID,
         setLoadingID,
         perfume_id,
-        setPerfume_id
+        setPerfume_id,
+        dataPerfumeCh,
+        setDataPerfumeCh,
+        loadingCh,
+        setLoadingCh
       }}
     >
       {children}
