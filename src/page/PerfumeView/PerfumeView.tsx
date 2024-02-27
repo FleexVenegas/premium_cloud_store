@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import MainDiv from "../../components/molecules/MainDiv/MainDiv";
 import { NavLink, useParams } from "react-router-dom";
 
-
 // Styles
 import "./PerfumeView.scss";
 
@@ -14,35 +13,37 @@ import { responseApiSuccess, responseError } from "../../interface/interface";
 import { Warning } from "../../utilities/SweetAlert/SweetAlertModal";
 import { getAxiosApi } from "../../services/api/Api";
 import { useStateContext } from "../../context/ContextProvider";
-import PerfumeMenuSkeleton from "../../components/molecules/PerfumeMenu/PerfumeMenuSkeleton";
 import PerfumeViewSkeleton from "./PerfumeViewSkeleton";
 
 const PerfumeView = () => {
-    const { id } = useParams();
-    const { dataPerfumeID, setDataPerfumeID, loadingID, setLoadingID, 
-        perfume_id, setPerfume_id } = useStateContext();
+  const { id } = useParams();
+  const {
+    dataPerfumeID,
+    setDataPerfumeID,
+    loadingID,
+    setLoadingID,
+    perfume_id,
+    setPerfume_id,
+  } = useStateContext();
 
   useEffect(() => {
     const perfumeID = async () => {
       try {
+        if (perfume_id != id) {
+          setLoadingID(false);
+          const dataID = await getAxiosApi(`/api/v1/fragrance/${id}`);
+          const _dataID = dataID as responseApiSuccess;
 
-        if(perfume_id != id){
-            setLoadingID(false)
-            const dataID = await getAxiosApi(`/api/v1/fragrance/${id}`);
-            const _dataID = dataID as responseApiSuccess;
+          if (_dataID.status === 200 && _dataID.data[0] != null) {
+            setDataPerfumeID(_dataID.data);
+            const _perfume_id = _dataID.data.map((id) => {
+              return id.perfumeID;
+            });
 
-            if (_dataID.status === 200) {
-                setDataPerfumeID(_dataID.data);
-                const _perfume_id = _dataID.data.map((id) => {
-                    return id.perfumeID
-                })
-    
-              setLoadingID(true);
-              setPerfume_id(_perfume_id[0])
-            }
-            
+            setLoadingID(true);
+            setPerfume_id(_perfume_id[0]);
+          }
         }
-        
       } catch (error) {
         console.log(error);
         const _error = error as responseError;
@@ -64,52 +65,55 @@ const PerfumeView = () => {
     scrollTop();
   }, []);
 
-
   return (
     <MainDiv className="PerfumeView">
       <ReturnBtn url="/" />
 
       {loadingID ? (
-          dataPerfumeID.map((_, idx) => {
-            return (
-              <div key={idx} className="p-cntHeader">
-                <div className="p-left">
-                  <div className={`p-cntImage`}>
-                    <img src={_.imageURL} alt="" className="p-img" />
-                  </div>
+        dataPerfumeID.map((_, idx) => {
+          return (
+            <div key={idx} className="p-cntHeader">
+              <div className="p-left">
+                <div className={`p-cntImage`}>
+                  <img src={_.imageURL} alt="" className="p-img" />
                 </div>
-                <div className="p-right">
-                  <div className="p-cnt_inside">
-                    <div className="p-cntDatas">
-                      <h1 className="p-title">{_.name}</h1>
-                      <StarRatings numberStar={_.rating} />
-                      <p className="p-code">
-                        <span>Product code:</span> {_.perfumeID}
-                      </p>
+              </div>
+              <div className="p-right">
+                <div className="p-cnt_inside">
+                  <div className="p-cntDatas">
+                    <h1 className="p-title">{_.name}</h1>
+                    <StarRatings numberStar={_.rating} />
+                    <p className="p-code">
+                      <span>Product code:</span> {_.perfumeID}
+                    </p>
+                  </div>
+                  <div className="p-cntPrice">$ {_.price}</div>
+                  <div className="p-cnTamnio">
+                    Size
+                    <div className="p-block">
+                      <div className={`p-mincard`}>{_.volumeML} ml</div>
                     </div>
-                    <div className="p-cntPrice">$ {_.price}</div>
-                    <div className="p-cnTamnio">
-                      Size
-                      <div className="p-block">
-                        <div className={`p-mincard`}>{_.volumeML} ml</div>
-                      </div>
-                    </div>
-                    <div className="p-cntDescription">
-                      Description:
-                      <p className="p-descrip">{_.description}</p>
-                    </div>
-                    <div className="p-category">
-                      Category:
-                      <NavLink to={`/fragrance/category/${_.gender.toLocaleLowerCase()}`} className={"bnt-gender"}>{_.gender}</NavLink>
-                    </div>
+                  </div>
+                  <div className="p-cntDescription">
+                    Description:
+                    <p className="p-descrip">{_.description}</p>
+                  </div>
+                  <div className="p-category">
+                    Category:
+                    <NavLink
+                      to={`/fragrance/category/${_.gender.toLocaleLowerCase()}`}
+                      className={"bnt-gender"}
+                    >
+                      {_.gender}
+                    </NavLink>
                   </div>
                 </div>
               </div>
-            );
-          })
-
-      ):(
-            <PerfumeViewSkeleton />
+            </div>
+          );
+        })
+      ) : (
+        <PerfumeViewSkeleton />
       )}
 
       {/* <div className="p-cnt_similar">
